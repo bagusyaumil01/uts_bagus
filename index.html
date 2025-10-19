@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properti Indah - Jual & Sewa Rumah</title>
+<style>
+    /* ======= RESET & FONT ======= */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Menambahkan smooth scroll behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: linear-gradient(180deg, #f8fbff, #e6f5ff, #d1f2ff);
+        color: #333;
+        animation: fadeIn 1.2s ease-in;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ======= HEADER ======= */
+    header {
+        background: linear-gradient(90deg, #009ffd, #2a2a72, #667eea);
+        color: white;
+        padding: 25px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px); /* Glass effect */
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    header h1 {
+        font-size: 2em;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        animation: slideInLeft 0.8s ease-out;
+    }
+
+    @keyframes slideInLeft {
+        from { transform: translateX(-50px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    nav li {
+        margin-left: 30px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 8px 12px;
+        border-radius: 20px;
+    }
+
+    nav a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 3px;
+        bottom: -5px;
+        left: 50%;
+        background: linear-gradient(90deg, #ffb6c1, #ff69b4);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+        border-radius: 2px;
+    }
+
+    nav a:hover {
+        background: rgba(255,255,255,0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    /* ======= HERO SECTION ======= */
+    .hero {
+        text-align: center;
+        padding: 140px 20px;
+        background: linear-gradient(120deg, #89f7fe, #66a6ff, #a8edea);
+        color: #084b83;
+        position: relative;
+        animation: fadeSlide 1.5s ease-out;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('https://picsum.photos/1200/600?blur=3') no-repeat center/cover;
+        opacity: 0.2;
+        animation: parallax 15s infinite linear;
+    }
+
+    @keyframes parallax {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-30px); }
+    }
+
+    @keyframes fadeSlide {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h2 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        color: #052f5f;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        animation: bounceIn 1.2s ease-out 0.5s both;
+    }
+
+    @keyframes bounceIn {
+        0% { transform: scale(0.3); opacity: 0; }
+        50% { transform: scale(1.05); }
+        70% { transform: scale(0.9); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .hero p {
+        font-size: 1.3em;
+        margin-bottom: 40px;
+        color: #064789;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    .btn {
+        background: linear-gradient(90deg, #007cf0, #00dfd8, #66a6ff);
+        color: white;
+        padding: 15px 35px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.4s ease;
+        box-shadow: 0 6px 12px rgba(0, 140, 255, 0.4);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+        left: 100%;
+    }
+
+    .btn:hover {
+        background: linear-gradient(90deg, #00dfd8, #66a6ff, #007cf0);
+        transform: scale(1.1) rotate(1deg);
+        box-shadow: 0 8px 16px rgba(0, 140, 255, 0.5);
+    }
+
+    /* ======= GENERIC SECTION STYLE ======= */
+    .content-section {
+        padding: 80px 40px;
+        background: linear-gradient(180deg, #ffffff, #ecf9ff, #d4f1ff);
+        position: relative;
+    }
+
+    .content-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle, rgba(0,223,216,0.1) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    .content-section h2 {
+        text-align: center;
+        color: #052f5f;
+        font-size: 2.5em;
+        margin-bottom: 50px;
+        position: relative;
+        animation: fadeIn 1s ease-out;
+    }
+
+    .content-section h2::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 5px;
+        border-radius: 3px;
+        background: linear-gradient(90deg, #00dfd8, #007cf0, #ffb6c1);
+        animation: growWidth 1.2s ease-out 0.5s both;
+    }
+
+    @keyframes growWidth {
+        from { width: 0; }
+        to { width: 100px; }
+    }
+
+    .property-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        justify-items: center;
+    }
+
+    .property-card {
+        background-color: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s ease;
+        width: 100%;
+        max-width: 360px;
+        animation: fadeUp 1s ease forwards;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .property-card:nth-child(1) { animation-delay: 0.1s; }
+    .property-card:nth-child(2) { animation-delay: 0.2s; }
+    .property-card:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .property-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #007cf0, #00dfd8, #ffb6c1);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .property-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .property-card:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(0,124,240,0.2);
+    }
+
+    .property-card img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .property-card:hover img {
+        transform: scale(1.05);
+    }
+
+    .property-card h3 {
+        color: #0a74da;
+        margin: 18px 18px 10px;
+        font-size: 1.4em;
+        transition: color 0.3s;
+    }
+
+    .property-card:hover h3 {
+        color: #007cf0;
+    }
+
+    .property-card p {
+        margin: 0 18px 10px;
+        font-size: 1em;
+        color: #444;
+    }
+
+    .btn-detail {
+        display: inline-block;
+        background: linear-gradient(90deg, #6a11cb, #2575fc, #ff6b35);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        margin: 18px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-detail::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s;
+    }
+
+    .btn-detail:hover::before {
+        left: 100%;
+    }
+
+    .btn-detail:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 255, 0.4);
+        background: linear-gradient(90deg, #2575fc, #ff6b35, #6a11cb);
+    }
+
+    /* ======= FOOTER ======= */
+    footer {
+        background: linear-gradient(90deg, #2a2a72, #009ffd, #667eea);
+        color: #f0faff;
+        text-align: center;
+        padding: 30px;
+        font-size: 1em;
+        margin-top: 50px;
+        position: relative;
+    }
+
+    footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #ffb6c1, #ff69b4);
+    }
+
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav ul {
+            margin-top: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 5px 10px;
+        }
+
+        .hero {
+            padding: 100px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.2em;
+        }
+
+        .content-section {
+            padding: 60px 20px;
+        }
+
+        .property-container {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .property-card {
+            max-width: 100%;
+        }
+    }
+</style>
+<!-- Menambahkan link font dari Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    <h1>Properti Indah</h1>
+    <nav>
+        <ul>
+            <!-- Tautan ini sekarang akan berfungsi -->
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#listing">Listing</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Menambahkan ID "hero" agar link navigasi #hero berfungsi -->
+<section id="hero" class="hero">
+    <h2>Temukan Rumah Impian Anda Bersama Kami</h2>
+    <p>Jual, beli, dan sewa properti dengan mudah dan cepat.</p>
+    <a href="#listing" class="btn">Lihat Listing</a>
+</section>
+
+<!-- Menambahkan ID "listing" agar link navigasi #listing berfungsi -->
+<section id="listing" class="content-section">
+    <h2>Properti Terbaru</h2>
+    <div class="property-container">
+        <div class="property-card">
+            <!-- Mengganti gambar lokal dengan gambar placeholder -->
+            <img src="download (1).jpg" alt="Rumah di Semarang">
+            <h3>Rumah Minimalis di Semarang</h3>
+            <p>Harga: Rp 850.000.000</p>
+            <p>3 Kamar Tidur | 2 Kamar Mandi | 120 m²</p>
+            <a href="#" class="btn-detail">Detail</a>
+        </div>
+
+        <div class="property-card">
+            <img src="apartement.png" alt="Apartemen Mewah di Jakarta">
+            <h3>Apartemen Mewah di Jakarta</h3>
+            <p>Harga: Rp 1.200.000.000</p>
+            <p>2 Kamar Tidur | 1 Kamar Mandi | 90 m²</p>
+            <a href="#" class="btn-detail">Detail</a>
+        </div>
+
+        <div class="property-card">
+            <img src="vila-di-bali.png" alt="Villa Nyaman di Bali">
+            <h3>Villa Nyaman di Bali</h3>
+            <p>Harga: Rp 2.500.000.000</p>
+            <p>4 Kamar Tidur | 3 Kamar Mandi | 200 m²</p>
+            <a href="#" class="btn-detail">Detail</a>
+        </div>
+    </div>
+</section>
+
+<!-- Menambahkan ID "about" dan kontennya agar link navigasi #about berfungsi -->
+<section id="about" class="content-section">
+    <h2>Tentang Kami</h2>
+    <p style="max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.8;">
+        Properti Indah adalah agensi properti terpercaya yang berdedikasi untuk membantu Anda menemukan properti idaman. Dengan pengalaman bertahun-tahun, kami menyediakan layanan jual, beli, dan sewa dengan proses yang transparan, mudah, dan aman. Tim profesional kami siap memberikan konsultasi terbaik untuk setiap kebutuhan properti Anda, mulai dari rumah tinggal, apartemen, hingga villa mewah.
+    </p>
+</section>
+
+
+<footer>
+    <p>© 2025 Properti Indah | Semua Hak Dilindungi</p>
+</footer>
+
+<!-- SCRIPT UNTUK SMOOTH SCROLL -->
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>

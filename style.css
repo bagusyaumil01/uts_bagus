@@ -1,0 +1,283 @@
+body {  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #f8fbff, #eaf6ff, #fff7e6, #ffeaa7);
+    color: #333;
+    transition: background 0.5s ease;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(90deg, #007cf0, #00b8d9, #ffd166, #fca311);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Modern glass effect */
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #ffd166, #fca311);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    background: 
+        linear-gradient(120deg, rgba(0,124,240,0.9), rgba(0,184,217,0.8), rgba(255,209,102,0.7), rgba(252,163,17,0.6)),
+        url('https://picsum.photos/1200/500?blur=2') no-repeat center/cover;
+    color: white;
+    text-align: center;
+    padding: 140px 20px;
+    position: relative;
+    animation: fadeInUp 1.5s ease-out;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://picsum.photos/1200/500?blur=3') no-repeat center/cover;
+    opacity: 0.3;
+    animation: parallax 10s infinite linear;
+}
+
+@keyframes parallax {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h2 { 
+    font-size: 48px; 
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+    animation: bounceIn 1.2s ease-out 0.5s both;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.btn { 
+    background: linear-gradient(90deg, #ffd166, #fca311, #ff6b35);
+    color: #333; 
+    padding: 15px 35px; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    font-weight: bold;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #fca311, #ff6b35, #ffd166);
+    transform: scale(1.1) rotate(1deg);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+/* ===== LISTING ===== */
+.listing {
+    text-align: center; 
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #ffffff, #e6f4ff, #d4f1ff);
+    position: relative;
+}
+
+.listing::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(0,184,217,0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.listing h2 { 
+    margin-bottom: 60px;
+    font-size: 2.5em;
+    color: #004aad;
+    position: relative;
+    animation: fadeIn 1s ease-out;
+}
+
+.listing h2::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(90deg, #00b8d9, #007cf0, #ffd166);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    animation: growWidth 1.2s ease-out 0.5s both;
+}
+
+@keyframes growWidth {
+    from { width: 0; }
+    to { width: 100px; }
+}
+
+/* ===== PROPERTY CARDS ===== */
+.property-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 40px;
+    position: relative;
+}
+
+.property-card {
+    background-color: white;
+    border-radius: 20px; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+    width: 320px; 
+    overflow: hidden; 
+    transition: all 0.4s ease;
+    transform: translateY(0);
+    position: relative;
+    cursor: pointer;
+}
+
+.property-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #007cf0, #00b8d9, #ffd166);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.property-card:hover::before {
+    transform: scaleX(1);
+}
+
+.property-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    border: 1px solid rgba(0,124,240,0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    nav ul {
+        gap: 15px;
+    }
+    
+    .hero {
+        padding: 100px 20px;
+    }
+    
+    .hero h2 {
+        font-size: 36px;
+    }
+    
+    .property-card {
+        width: 280px;
+    }
+}
